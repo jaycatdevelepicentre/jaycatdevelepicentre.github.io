@@ -795,35 +795,41 @@ function _loadBarChart(){
 }
 
 function share(){
+    let shareWinText = "";
+    for(let i = 0, j = _guessIndex; i<j; i++){
+        shareWinText += "❌";
+    }
+    if(_guessIndex<5){
+        shareWinText += "✔";
+    }    
 
-    shareWinText = "&#10004;" + "&#10060;" + "&#11093;";
-    const shareText = "Epicentre.lol " + new Date().toISOString().split('T')[0] 
+    const pastDate = new Date(startDate);
+    let vIndex = _wordIndex;
+    if(typeof vIndex === 'string')    {
+        vIndex = parseInt(vIndex);
+    }
+    pastDate.setDate(startDate.getDate() + vIndex);
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = pastDate.toLocaleDateString('en-US', options);
+
+    const shareText = "Epicentre.lol " + formattedDate
     + "\n\n"
-    + shareWinText;
+    + shareWinText
+    +"\n\n"
+    + "https://www.epicentre.lol";
 
     const shareUrl = "https://epicentre.lol"; // Replace with your URL
 
+    alert(shareText);
     if (navigator.share) {
         // Use the Web Share API
         navigator.share({
-            title: 'Share this content',
-            text: shareText,
-            url: shareUrl
+            title: 'Play EPICENTRE',
+            text: shareText
         })
         .then(() => console.log('Share successful'))
         .catch((error) => console.log('Error sharing:', error));
-    } else {
-        // Fallback for browsers that do not support the Web Share API
-        const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
-        const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
-        const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`;
-
-        // Open a new window for sharing
-        window.open(facebookUrl, '_blank');
-        window.open(twitterUrl, '_blank');
-        window.open(linkedinUrl, '_blank');
-    }
-
+    } 
 }
 
 if ('serviceWorker' in navigator) {
