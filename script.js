@@ -820,11 +820,9 @@ function share(){
 
     const shareUrl = "https://epicentre.lol"; // Replace with your URL
 
-    alert(shareText);
     if (navigator.share) {
         // Use the Web Share API
         navigator.share({
-            title: 'Play EPICENTRE',
             text: shareText
         })
         .then(() => console.log('Share successful'))
