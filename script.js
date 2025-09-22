@@ -799,7 +799,7 @@ function share(){
     for(let i = 0, j = _guessIndex; i<j; i++){
         shareWinText += "❌";
     }
-    if(_guessIndex<5){
+    if(_guessIndex<6){
         shareWinText += "✔";
     }    
 
