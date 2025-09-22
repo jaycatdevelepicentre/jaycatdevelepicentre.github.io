@@ -1,0 +1,336 @@
+<html>
+    <head>    
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="./favicon.ico">
+        <title>Epicentre</title>
+        <script src="script.js"></script>    
+        <script src="words.js"></script>    
+        <link rel="manifest" href="manifest.json">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>        
+        <div class="container">
+            <div class="page shownPage" id ="homePage">
+                <div class="mainBody">
+                    <h1>&#x1F3AF;&nbsp;EPICENTRE&nbsp;</h1>                
+                    <div>
+                        <button type="button" class="primary-button" onclick="play()">Play</button>                    
+                    </div>
+                    <div class="footer">
+                        <button type="button" class="info-button" onclick="howto()">How to Play</button>
+                        <button type="button" class="secondary-button" onclick="archive()">Play Archive</button>
+                    </div>
+                    <div>
+                        <span class="small">Made by Jaycat</span>&#128008;&#8205;&#11035;
+                    </div>
+                    <div>
+                        <a href="https://buymeacoffee.com/jaycatdevel"><span class="small">(Buy me a coffee)</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="page hiddenPage" id ="howToPage">
+                <h1>&#10067;&nbsp;HOW TO PLAY&nbsp;</h1>
+                <div class="mainBody">
+                    <div class="text">The aim of <strong>&#x1F3AF;&nbsp;EPICENTER</strong> is to guess the five letter word.</div>
+                    <div class = "guessRow" id = "rowHelp">
+                        <div class = "cell"><div class = "cell-inner"><div class = "cell-front exact">H</div></div></div>
+                        <div class = "cell"><div class = "cell-inner"><div class = "cell-front close">E</div></div></div>
+                        <div class = "cell"><div class = "cell-inner"><div class = "cell-front reasonable">L</div></div></div>
+                        <div class = "cell"><div class = "cell-inner"><div class = "cell-front far">L</div></div></div>
+                        <div class = "cell"><div class = "cell-inner"><div class = "cell-front out-of-bounds">O</div></div></div>
+                    </div>
+                    <div class="text">You have six chances to guess the correct word.</div>                                                            
+                    <div class="guessRow">
+                        <div class="column">
+                            <div class = "cell">
+                                <div class = "cell-inner">
+                                    <div class = "cell-front exact">
+                                        H
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column-text">
+                            &nbsp;Green means you have the correct letter
+                        </div>
+                    </div>
+                    <div class="guessRow">
+                        <div class="column">
+                            <div class = "cell">
+                                <div class = "cell-inner">
+                                    <div class = "cell-front close">
+                                        E
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column-text">
+                            &nbsp;Blue means you are within two letters
+                        </div>
+                    </div>
+                    <div class="guessRow">
+                        <div class="column">
+                            <div class = "cell">
+                                <div class = "cell-inner">
+                                    <div class = "cell-front reasonable">
+                                        L
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column-text">
+                            &nbsp;Yellow means you are within five letters
+                        </div>
+                    </div>
+                    <div class="guessRow">
+                        <div class="column">
+                            <div class = "cell">
+                                <div class = "cell-inner">
+                                    <div class = "cell-front far">
+                                        L
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column-text">
+                            &nbsp;Red means you are within ten letters
+                        </div>
+                    </div>
+                    <div class="guessRow">
+                        <div class="column">
+                            <div class = "cell">
+                                <div class = "cell-inner">
+                                    <div class = "cell-front out-of-bounds">
+                                        O
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column-text">
+                            &nbsp;Grey means you are not close to the correct letter at all
+                        </div>
+                    </div>                                                            
+                    <div class="text">&nbsp;</div>
+                    <div class="text">The letter board will show you which letters are possible for this position</div>
+                    <div class="letterContainer">
+                        <div class="keyRow">
+                            <div class="letterBox hidden">A</div>
+                            <div class="letterBox hidden">B</div>
+                            <div class="letterBox highlighted">C</div>
+                            <div class="letterBox highlighted">D</div>
+                            <div class="letterBox highlighted close">E</div>
+                            <div class="letterBox highlighted">F</div>
+                            <div class="letterBox highlighted">G</div>
+                            <div class="letterBox hidden">H</div>
+                            <div class="letterBox hidden">I</div>
+                            <div class="letterBox hidden">J</div>
+                            <div class="letterBox hidden">K</div>
+                            <div class="letterBox hidden">L</div>
+                            <div class="letterBox hidden">M</div>
+                        </div>
+                        <div class="keyRow">                            
+                            <div class="letterBox hidden">N</div>
+                            <div class="letterBox hidden">O</div>
+                            <div class="letterBox hidden">P</div>
+                            <div class="letterBox hidden">Q</div>
+                            <div class="letterBox hidden">R</div>
+                            <div class="letterBox hidden">S</div>
+                            <div class="letterBox hidden">T</div>
+                            <div class="letterBox hidden">U</div>
+                            <div class="letterBox hidden">V</div>
+                            <div class="letterBox hidden">W</div>
+                            <div class="letterBox hidden">X</div>
+                            <div class="letterBox hidden">Y</div>
+                            <div class="letterBox hidden">Z</div>
+                        </div>
+                    </div>
+                    <div class="text">&nbsp;</div>
+                    <div class="text">There is a new word every day (or play the archive for past words).</div>                                        
+                </div>
+                <div class="footer">
+                    <button type="button" class="primary-button" onclick="play()">Play</button>
+                </div>
+            </div>
+            <div class="page hiddenPage" id ="archivePage">
+                <div class="headerBar">
+                    <div class = "key raiseButton leftButton" onclick="goHome()">&#11013;</div>                                        
+                    <h1>Archive</h1>
+                </div>                
+                <div class="mainBody">
+                    <div class="archiveGrid" id="archiveGrid">
+                    </div>
+                </div>
+                <div class="footer">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="page hiddenPage" id ="gamePage">                
+                <div class="headerBar"">
+                    <div class = "key leftButton" onclick="goHome()" id="backButton">&#11013;</div>    
+                    <h2 id="gameID">Sep 22, 2025</h2>                                    
+                    <div class = "close rightButton key" onclick="_showModal('STATS','')">&#127942;</div>                                        
+                </div>
+                <div class="mainBody">
+                    <div class="guessGrid" id="guessGrid">
+                        <div class = "guessRow" id = "row0">
+                            <div class = "cell"><div class = "cell-inner"></div></div>
+                            <div class = "cell"><div class = "cell-inner"></div></div>
+                            <div class = "cell"><div class = "cell-inner"></div></div>
+                            <div class = "cell"><div class = "cell-inner"></div></div>
+                            <div class = "cell"><div class = "cell-inner"></div></div>
+                        </div>
+                        <div class = "guessRow" id = "row1">
+                            <div class = "cell"><div class = "cell-inner"></div></div>
+                            <div class = "cell"><div class = "cell-inner"></div></div>
+                            <div class = "cell"><div class = "cell-inner"></div></div>
+                            <div class = "cell"><div class = "cell-inner"></div></div>
+                            <div class = "cell"><div class = "cell-inner"></div></div>
+                        </div>
+                        <div class = "guessRow" id = "row2">
+                            <div class = "cell"><div class = "cell-inner"></div></div>
+                            <div class = "cell"><div class = "cell-inner"></div></div>
+                            <div class = "cell"><div class = "cell-inner"></div></div>
+                            <div class = "cell"><div class = "cell-inner"></div></div>
+                            <div class = "cell"><div class = "cell-inner"></div></div>
+                        </div>
+                        <div class = "guessRow" id = "row3">
+                            <div class = "cell"><div class = "cell-inner"></div></div>
+                            <div class = "cell"><div class = "cell-inner"></div></div>
+                            <div class = "cell"><div class = "cell-inner"></div></div>
+                            <div class = "cell"><div class = "cell-inner"></div></div>
+                            <div class = "cell"><div class = "cell-inner"></div></div>
+                        </div>
+                        <div class = "guessRow" id = "row4">
+                            <div class = "cell"><div class = "cell-inner"></div></div>
+                            <div class = "cell"><div class = "cell-inner"></div></div>
+                            <div class = "cell"><div class = "cell-inner"></div></div>
+                            <div class = "cell"><div class = "cell-inner"></div></div>
+                            <div class = "cell"><div class = "cell-inner"></div></div>
+                        </div>
+                        <div class = "guessRow" id = "row5">
+                            <div class = "cell"><div class = "cell-inner"></div></div>
+                            <div class = "cell"><div class = "cell-inner"></div></div>
+                            <div class = "cell"><div class = "cell-inner"></div></div>
+                            <div class = "cell"><div class = "cell-inner"></div></div>
+                            <div class = "cell"><div class = "cell-inner"></div></div>
+                        </div>
+                    </div>
+                    <div id="letterRange" class="letterContainer">
+                        <div class="keyRow">
+                            <div class="letterBox" id="lbA">A</div>
+                            <div class="letterBox" id="lbB">B</div>
+                            <div class="letterBox" id="lbC">C</div>
+                            <div class="letterBox" id="lbD">D</div>
+                            <div class="letterBox" id="lbE">E</div>
+                            <div class="letterBox" id="lbF">F</div>
+                            <div class="letterBox" id="lbG">G</div>
+                            <div class="letterBox" id="lbH">H</div>
+                            <div class="letterBox" id="lbI">I</div>
+                            <div class="letterBox" id="lbJ">J</div>
+                            <div class="letterBox" id="lbK">K</div>
+                            <div class="letterBox" id="lbL">L</div>
+                            <div class="letterBox" id="lbM">M</div>
+                        </div>
+                        <div class="keyRow">                            
+                            <div class="letterBox" id="lbN">N</div>
+                            <div class="letterBox" id="lbO">O</div>
+                            <div class="letterBox" id="lbP">P</div>
+                            <div class="letterBox" id="lbQ">Q</div>
+                            <div class="letterBox" id="lbR">R</div>
+                            <div class="letterBox" id="lbS">S</div>
+                            <div class="letterBox" id="lbT">T</div>
+                            <div class="letterBox" id="lbU">U</div>
+                            <div class="letterBox" id="lbV">V</div>
+                            <div class="letterBox" id="lbW">W</div>
+                            <div class="letterBox" id="lbX">X</div>
+                            <div class="letterBox" id="lbY">Y</div>
+                            <div class="letterBox" id="lbZ">Z</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="keyboard">
+                    <div class="keyRow">
+                        <div class = "key" onclick="keyTap('Q')" id="key_Q">Q</div>
+                        <div class = "key" onclick="keyTap('W')" id="key_W">W</div>
+                        <div class = "key" onclick="keyTap('E')" id="key_E">E</div>
+                        <div class = "key" onclick="keyTap('R')" id="key_R">R</div>
+                        <div class = "key" onclick="keyTap('T')" id="key_T">T</div>
+                        <div class = "key" onclick="keyTap('Y')" id="key_Y">Y</div>
+                        <div class = "key" onclick="keyTap('U')" id="key_U">U</div>
+                        <div class = "key" onclick="keyTap('I')" id="key_I">I</div>
+                        <div class = "key" onclick="keyTap('O')" id="key_O">O</div>
+                        <div class = "key" onclick="keyTap('P')" id="key_P">P</div>                
+                    </div>
+                    <div class="keyRow">
+                        <div class = "key" onclick="keyTap('A')" id="key_A">A</div>
+                        <div class = "key" onclick="keyTap('S')" id="key_S">S</div>
+                        <div class = "key" onclick="keyTap('D')" id="key_D">D</div>
+                        <div class = "key" onclick="keyTap('F')" id="key_F">F</div>
+                        <div class = "key" onclick="keyTap('G')" id="key_G">G</div>
+                        <div class = "key" onclick="keyTap('H')" id="key_H">H</div>
+                        <div class = "key" onclick="keyTap('J')" id="key_J">J</div>
+                        <div class = "key" onclick="keyTap('K')" id="key_K">K</div>
+                        <div class = "key" onclick="keyTap('L')" id="key_L">L</div>                
+                    </div>
+                    <div class="keyRow">
+                        <div class = "key" onclick="keyTap('ENTER')" id="key_ENTER"><span class="small">ENTER</span></div>
+                        <div class = "key" onclick="keyTap('Z')" id="key_Z">Z</div>
+                        <div class = "key" onclick="keyTap('X')" id="key_X">X</div>
+                        <div class = "key" onclick="keyTap('C')" id="key_C">C</div>
+                        <div class = "key" onclick="keyTap('V')" id="key_V">V</div>
+                        <div class = "key" onclick="keyTap('B')" id="key_B">B</div>
+                        <div class = "key" onclick="keyTap('N')" id="key_N">N</div>
+                        <div class = "key" onclick="keyTap('M')" id="key_M">M</div>
+                        <div class = "key" onclick="keyTap('DELETE')" id="key_del"><span class="small">DEL</span></div>                
+                    </div>            
+                </div>     
+            </div>   
+        </div>
+        <div id="toast" class="toast invisible"></div>
+        <div id="modal" class="modal invisible">
+            <div class="modal-content">
+                <div>
+                    <span class="close closeModal key" id="closeModal" onclick="closeModal()">&times;</span>
+                </div>
+                <div>
+                    <h3 id="modalTitle">This is a simple modal dialog.</h3>
+                    <h2 id="modalHeader">Modal Title</h2>                
+                </div>
+                <div class="statsText">
+                    <div class="statsTextBox">
+                        <div>&nbsp;</div>
+                        <div>Played</div>                        
+                        <div class="statsTextBox" id="statsPlayed">0</div>
+                    </div>
+                    <div class="statsTextBox">
+                        <div>&nbsp;</div>
+                        <div>Won</div>
+                        <div class="statsTextBox" id="statsWon">0</div>
+                    </div>
+                    <div class="statsTextBox">
+                        <div>&nbsp;</div>
+                        <div>%</div>
+                        <div class="statsTextBox" id="statsPercent">0</div>
+                    </div>
+                    <div class="statsTextBox">
+                        <div>&nbsp;</div>
+                        <div>Streak</div>
+                        <div class="statsTextBox" id="statsStreak">0</div>
+                    </div>
+                    <div class="statsTextBox">
+                        <div>
+                            <div>Best</div>
+                            <div>Streak</div>
+                        </div>
+                        <div class="statsTextBox" id="statsBestStreak">0</div>
+                    </div>
+                </div>
+                <div id="chart"></div>
+                <div>
+                    <button type="button" class="primary-button" onclick="share()">Share</button>                    
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
