@@ -812,11 +812,11 @@ function share(){
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     const formattedDate = pastDate.toLocaleDateString('en-US', options);
 
-    const shareText = "Epicentre.lol " + formattedDate
+    const shareText = "Epicentre " + formattedDate
     + "\n\n"
-    + shareWinText
-    +"\n\n"
-    + "https://www.epicentre.lol";
+    + shareWinText;
+    //+"\n\n"
+    //+ "https://www.epicentre.lol";
 
     const shareUrl = "https://epicentre.lol"; // Replace with your URL
 
